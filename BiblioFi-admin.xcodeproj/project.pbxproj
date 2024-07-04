@@ -21,6 +21,7 @@
 		446A83552C3558630042A40E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83542C3558630042A40E /* FirebaseFirestore */; };
 		446A83572C3558630042A40E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83562C3558630042A40E /* FirebaseFirestoreSwift */; };
 		446A83592C3558630042A40E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83582C3558630042A40E /* FirebaseStorage */; };
+		75EDD6E12C36669D009725BE /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDD6E02C36669D009725BE /* LoginPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		446A82EE2C3548E50042A40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446A82F12C3548E50042A40E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		446A83452C35576C0042A40E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75EDD6E02C36669D009725BE /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				446A82EE2C3548E50042A40E /* Assets.xcassets */,
 				446A83452C35576C0042A40E /* GoogleService-Info.plist */,
 				446A82F02C3548E50042A40E /* Preview Content */,
+				75EDD6E02C36669D009725BE /* LoginPage.swift */,
 			);
 			path = "BiblioFi-admin";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446A82ED2C3548E30042A40E /* ContentView.swift in Sources */,
+				75EDD6E12C36669D009725BE /* LoginPage.swift in Sources */,
 				446A82EB2C3548E30042A40E /* BiblioFi_adminApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

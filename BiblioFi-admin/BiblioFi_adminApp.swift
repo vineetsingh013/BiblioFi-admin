@@ -21,7 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct BiblioFi_adminApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginPage()
         }
     }
 }
