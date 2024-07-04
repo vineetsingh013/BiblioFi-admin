@@ -1,15 +1,34 @@
-//
-//  LoginPage.swift
-//  BiblioFi-admin
-//
-//  Created by Anuj Fauzdar on 04/07/24.
-//
-
 import SwiftUI
 
+@MainActor
+final class LoginPageViewModel: ObservableObject {
+    @Published var email = ""
+    @Published var password = ""
+    
+    func signIn(){
+        
+        guard isValidEmail(email), isValidPassword(password) else {
+            print("email or password is not valid!")
+            return
+        }
+        
+        Task {
+            do {
+                let returnedUserData = try await AuthenticationManager.shared.loginUser(email: email, password: password)
+                print("Success")
+                print(returnedUserData)
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+            
+            
+    }
+}
+
 struct LoginPage: View {
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject private var loginPageViewModel = LoginPageViewModel()
+    
 
     var body: some View {
         ZStack {
@@ -65,7 +84,7 @@ struct LoginPage: View {
                         .font(.custom("Avenir Next", size: 18))
                         .foregroundColor(Color(hex: "8D6E63")) // Secondary Text Color
 
-                    TextField("Email address", text: $email)
+                    TextField("Email address", text: $loginPageViewModel.email)
                         .font(.custom("Avenir Next", size: 18))
                         .padding()
                         .background(Color.white)
@@ -75,7 +94,7 @@ struct LoginPage: View {
                         .keyboardType(.emailAddress)
                         .padding(.horizontal, 40)
 
-                    SecureField("Password", text: $password)
+                    SecureField("Password", text: $loginPageViewModel.password)
                         .font(.custom("Avenir Next", size: 18))
                         .padding()
                         .background(Color.white)
@@ -85,6 +104,11 @@ struct LoginPage: View {
                     
                     Button(action: {
                         // Handle login action here
+                        
+                        loginPageViewModel.signIn()
+                        
+                        
+                        
                     }) {
                         Text("Login")
                             .font(.custom("Avenir Next", size: 18))
@@ -129,6 +153,8 @@ extension Color {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginPage()
+        NavigationStack {
+            LoginPage()
+        }
     }
 }
