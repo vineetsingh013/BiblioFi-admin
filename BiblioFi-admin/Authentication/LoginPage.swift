@@ -4,6 +4,7 @@ import SwiftUI
 final class LoginPageViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
+
     
     func signIn(){
         
@@ -28,6 +29,8 @@ final class LoginPageViewModel: ObservableObject {
 
 struct LoginPage: View {
     @StateObject private var loginPageViewModel = LoginPageViewModel()
+    @State private var isLoggedIn = false
+
     
 
     var body: some View {
@@ -105,8 +108,10 @@ struct LoginPage: View {
                     Button(action: {
                         // Handle login action here
                         
-                        loginPageViewModel.signIn()
-                        
+                        self.isLoggedIn = true
+
+                            loginPageViewModel.signIn()
+                            
                         
                         
                     }) {
@@ -119,6 +124,8 @@ struct LoginPage: View {
                             .background(Color(hex: "A0522D")) // Button Color
                             .cornerRadius(10)
                             .padding(.horizontal, 40)
+                    }.fullScreenCover(isPresented: $isLoggedIn) {
+                        DashboardView()
                     }
 
                     Spacer()
