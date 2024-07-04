@@ -28,7 +28,7 @@ final class LoginPageViewModel: ObservableObject {
 
 struct LoginPage: View {
     @StateObject private var loginPageViewModel = LoginPageViewModel()
-    
+    @State private var isLoggedIn = false
 
     var body: some View {
         ZStack {
@@ -106,7 +106,7 @@ struct LoginPage: View {
                         // Handle login action here
                         
                         loginPageViewModel.signIn()
-                        
+                        self.isLoggedIn = true
                         
                         
                     }) {
@@ -119,7 +119,9 @@ struct LoginPage: View {
                             .background(Color(hex: "A0522D")) // Button Color
                             .cornerRadius(10)
                             .padding(.horizontal, 40)
-                    }
+                    }.fullScreenCover(isPresented: $isLoggedIn, content: {
+                        DashboardView()
+                    })
 
                     Spacer()
                 }
