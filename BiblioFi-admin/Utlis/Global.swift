@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 
 func isValidEmail(_ email: String) -> Bool {
@@ -18,3 +19,6 @@ func isValidPassword(_ password: String) -> Bool {
     return password.count >= 6
 }
 
+func isCurrentlyAdmin() -> Bool {
+    return Auth.auth().currentUser?.email == "admin@admin.com"
+}
