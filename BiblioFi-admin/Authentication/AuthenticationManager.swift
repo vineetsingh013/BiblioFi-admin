@@ -22,8 +22,8 @@ struct AuthDataResult {
 
 final class AuthenticationManager {
     
-    
     static let shared = AuthenticationManager()
+    
     private init() { }
     
     
@@ -39,7 +39,11 @@ final class AuthenticationManager {
     
     func getAuthenticatedAdmin() throws -> AuthDataResult {
         guard let user = Auth.auth().currentUser else { throw URLError(.badServerResponse)}
-        return AuthDataResult(user: user)
+        if isCurrentlyAdmin() {
+            return AuthDataResult(user: user)
+        } else { throw URLError(.badServerResponse) }
     }
+    
+//    func getAuthenticatedLibrarian() 
     
 }
