@@ -11,7 +11,7 @@ struct LibrarianCreationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Library Name")
+                Text("Infosys Library")
                     .font(.largeTitle)
                     .padding(.leading, 20)
 
