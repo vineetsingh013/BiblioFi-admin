@@ -7,7 +7,7 @@ struct SidebarView: View {
     var body: some View {
         VStack {
             VStack {
-                Image("Screenshot_2024-07-03_at_8.55.37_PM-removebg-preview")
+                Image("owlLogo")
                     .resizable()
                     .frame(width: 150, height: 200)
                     .padding(.top, 40)
@@ -30,7 +30,7 @@ struct SidebarView: View {
                             .font(.title2)
                     }
                     .padding()
-                    .background(selectedTab == "Dashboard" ? Color(.systemGray5) : Color.clear)
+                    .background(selectedTab == "Dashboard" ? Color(hex: "FDF5E6") : Color.clear)
                     .cornerRadius(10)
                 }
 
@@ -43,7 +43,7 @@ struct SidebarView: View {
                             .font(.title2)
                     }
                     .padding()
-                    .background(selectedTab == "Librarian" ? Color(.systemGray5) : Color.clear)
+                    .background(selectedTab == "Librarian" ? Color(hex: "FDF5E6") : Color.clear)
                     .cornerRadius(10)
                 }
             }
@@ -61,7 +61,7 @@ struct SidebarView: View {
             .padding(.bottom, 30)
         }
         .frame(width: 250)
-        .background(Color(.systemPink).opacity(0.2))
+        .background(Color(hex: "FDF5E6"))
         .ignoresSafeArea()
     }
 }
