@@ -63,12 +63,14 @@ struct AddLibrarianView: View {
                 }
             ) {
                 Text("Create")
-                    .font(.headline)
-                    .foregroundColor(.black)
+                    .font(.custom("Avenir Next", size: 18))
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
                     .padding()
-                    .frame(width: 220, height: 60)
-                    .cornerRadius(15.0)
-                    .background(Color(.systemPink).opacity(0.2))
+                    .background(Color(hex: "A0522D")) 
+                    .cornerRadius(10)
+                    .padding(.horizontal, 40)
             }
             .padding()
             
