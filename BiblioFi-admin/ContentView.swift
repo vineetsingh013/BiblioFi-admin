@@ -1,15 +1,23 @@
-//
-//  ContentView.swift
-//  BiblioFi-admin
-//
-//  Created by Vineet Chaudhary on 03/07/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLoggedIn = false
+    
     var body: some View {
-        LoginPage()
+        Group {
+            if isLoggedIn {
+                DashboardView()
+            } else {
+                LoginPage()
+            }
+        }
+        .onAppear {
+            checkSignInStatus()
+        }
+    }
+    
+    private func checkSignInStatus() {
+        isLoggedIn = UserDefaults.standard.bool(forKey: "isUserSignedIn")
     }
 }
 

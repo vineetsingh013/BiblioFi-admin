@@ -22,12 +22,12 @@ struct AuthDataResult {
 
 final class AuthenticationManager {
     
-    
     static let shared = AuthenticationManager()
+    
     private init() { }
     
     
-    func createUser(email: String, password: String) async throws -> AuthDataResult{
+    func createLibrarian(email: String, password: String) async throws -> AuthDataResult{
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
         return AuthDataResult(user: authDataResult.user)
     }
@@ -37,5 +37,13 @@ final class AuthenticationManager {
         return AuthDataResult(user: authDataResult.user)
     }
     
+    func getAuthenticatedAdmin() throws -> AuthDataResult {
+        guard let user = Auth.auth().currentUser else { throw URLError(.badServerResponse)}
+        if isCurrentlyAdmin() {
+            return AuthDataResult(user: user)
+        } else { throw URLError(.badServerResponse) }
+    }
+    
+//    func getAuthenticatedLibrarian() 
     
 }
