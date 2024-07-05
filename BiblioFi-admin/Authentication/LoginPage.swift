@@ -4,11 +4,13 @@ import SwiftUI
 final class LoginPageViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
+    @Published var showAlert = false
+    @Published var alertMessage = ""
     
-    func signIn(){
-        
+    func signIn(isLoggedIn: Binding<Bool>) {
         guard isValidEmail(email), isValidPassword(password) else {
-            print("email or password is not valid!")
+            alertMessage = "Email or password is not valid!"
+            showAlert = true
             return
         }
         
@@ -17,24 +19,24 @@ final class LoginPageViewModel: ObservableObject {
                 let returnedUserData = try await AuthenticationManager.shared.loginUser(email: email, password: password)
                 print("Success")
                 print(returnedUserData)
+                UserDefaults.standard.set(true, forKey: "isUserSignedIn")
+                isLoggedIn.wrappedValue = true
             } catch {
-                print("Error: \(error)")
+                alertMessage = "Error: \(error.localizedDescription)"
+                showAlert = true
             }
         }
-            
-            
     }
 }
-
 struct LoginPage: View {
     @StateObject private var loginPageViewModel = LoginPageViewModel()
     @State private var isLoggedIn = false
-
+    
     var body: some View {
         ZStack {
             Color(hex: "FDF5E6") // Pastel Background
                 .edgesIgnoringSafeArea(.all)
-
+            
             HStack {
                 VStack {
                     Spacer()
@@ -48,7 +50,7 @@ struct LoginPage: View {
                 .frame(width: UIScreen.main.bounds.width / 2)
                 Divider()
                     .overlay(Color(hex: "5D4037"))
-                    
+                
                 VStack(spacing: 20) {
                     
                     
@@ -56,34 +58,34 @@ struct LoginPage: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 100, height: 100)
-                        
+                    
                     Text("BibloFi")
                     
-                                 .frame(width: 100,height: 40)
+                        .frame(width: 100,height: 40)
                         .font(.custom("Avenir Next", size: 24
                                      ))
                         .fontWeight(.bold)
                         .foregroundColor(Color(hex: "5D4037"))
-                        
-                        // Primary Text Color
                     
-                  
+                    // Primary Text Color
+                    
+                    
                     Text("Welcome")
                         .frame(width: 300)
                         .font(.custom("Avenir Next", size: 40))
                         .fontWeight(.bold)
                         .foregroundColor(Color(hex: "5D4037"))
                         .padding(10)// Primary Text Color
-
-//                    Text("Login")
-//                        .font(.custom("Avenir Next", size: 24))
-//                        .fontWeight(.semibold)
-//                        .foregroundColor(Color(hex: "5D4037")) // Primary Text Color
+                    
+                    //                    Text("Login")
+                    //                        .font(.custom("Avenir Next", size: 24))
+                    //                        .fontWeight(.semibold)
+                    //                        .foregroundColor(Color(hex: "5D4037")) // Primary Text Color
                     
                     Text("Please login to your account")
                         .font(.custom("Avenir Next", size: 18))
                         .foregroundColor(Color(hex: "8D6E63")) // Secondary Text Color
-
+                    
                     TextField("Email address", text: $loginPageViewModel.email)
                         .font(.custom("Avenir Next", size: 18))
                         .padding()
@@ -93,7 +95,7 @@ struct LoginPage: View {
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
                         .padding(.horizontal, 40)
-
+                    
                     SecureField("Password", text: $loginPageViewModel.password)
                         .font(.custom("Avenir Next", size: 18))
                         .padding()
@@ -103,34 +105,33 @@ struct LoginPage: View {
                         .padding(.horizontal, 40)
                     
                     Button(action: {
-                        // Handle login action here
-                        
-                        loginPageViewModel.signIn()
-                        self.isLoggedIn = true
-                        
-                        
-                    }) {
-                        Text("Login")
-                            .font(.custom("Avenir Next", size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color(hex: "A0522D")) // Button Color
-                            .cornerRadius(10)
-                            .padding(.horizontal, 40)
-                    }.fullScreenCover(isPresented: $isLoggedIn, content: {
-                        DashboardView()
-                    })
-
-                    Spacer()
-                }
-                .frame(width: UIScreen.main.bounds.width / 2)
-            }
-        }
-    }
-}
-
+                                            loginPageViewModel.signIn(isLoggedIn: $isLoggedIn)
+                                        }) {
+                                            Text("Login")
+                                                .font(.custom("Avenir Next", size: 18))
+                                                .fontWeight(.bold)
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity)
+                                                .padding()
+                                                .background(Color(hex: "A0522D")) // Button Color
+                                                .cornerRadius(10)
+                                                .padding(.horizontal, 40)
+                                        }
+                                        
+                                        Spacer()
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width / 2)
+                                }
+                            }
+                            .alert(isPresented: $loginPageViewModel.showAlert) {
+                                Alert(
+                                    title: Text("Sign-In Error"),
+                                    message: Text(loginPageViewModel.alertMessage),
+                                    dismissButton: .default(Text("OK"))
+                                )
+                            }
+                        }
+                    }
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
