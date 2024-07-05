@@ -21,15 +21,17 @@
 		446A83552C3558630042A40E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83542C3558630042A40E /* FirebaseFirestore */; };
 		446A83572C3558630042A40E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83562C3558630042A40E /* FirebaseFirestoreSwift */; };
 		446A83592C3558630042A40E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83582C3558630042A40E /* FirebaseStorage */; };
-		75EDD6E12C36669D009725BE /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDD6E02C36669D009725BE /* LoginPage.swift */; };
-		890AEF442C3714C000040D99 /* AddLibrarian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890AEF422C3714C000040D99 /* AddLibrarian.swift */; };
-		890AEF452C3714C000040D99 /* LibrarianCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890AEF432C3714C000040D99 /* LibrarianCreationView.swift */; };
-		890AEF482C3714DC00040D99 /* LibrarianDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890AEF462C3714DC00040D99 /* LibrarianDataController.swift */; };
-		890AEF4B2C3714EE00040D99 /* LibrarianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890AEF492C3714EE00040D99 /* LibrarianModel.swift */; };
-		890AEF502C37151600040D99 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890AEF4E2C37151600040D99 /* SidebarView.swift */; };
-		890AEF512C37151600040D99 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890AEF4F2C37151600040D99 /* DashboardView.swift */; };
-		BE58977A2C36921B00EA6291 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897792C36921B00EA6291 /* AuthenticationManager.swift */; };
-		BE58977D2C3697B900EA6291 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58977C2C3697B900EA6291 /* Global.swift */; };
+		BE5897AB2C37E33900EA6291 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58979C2C37E33900EA6291 /* DataModel.swift */; };
+		BE5897AC2C37E33900EA6291 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58979D2C37E33900EA6291 /* AuthManager.swift */; };
+		BE5897AD2C37E33900EA6291 /* LibrarianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58979F2C37E33900EA6291 /* LibrarianModel.swift */; };
+		BE5897AE2C37E33900EA6291 /* LibrarianDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897A12C37E33900EA6291 /* LibrarianDataController.swift */; };
+		BE5897AF2C37E33900EA6291 /* AddLibrarianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897A32C37E33900EA6291 /* AddLibrarianView.swift */; };
+		BE5897B02C37E33900EA6291 /* LibrarianCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897A42C37E33900EA6291 /* LibrarianCreationView.swift */; };
+		BE5897B12C37E33900EA6291 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897A62C37E33900EA6291 /* DashboardView.swift */; };
+		BE5897B22C37E33900EA6291 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897A72C37E33900EA6291 /* Sidebar.swift */; };
+		BE5897B32C37E33900EA6291 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897A92C37E33900EA6291 /* Global.swift */; };
+		BE5897B72C37E34600EA6291 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897B42C37E34600EA6291 /* AuthenticationManager.swift */; };
+		BE5897B82C37E34600EA6291 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897B52C37E34600EA6291 /* LoginPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,16 +41,17 @@
 		446A82EE2C3548E50042A40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446A82F12C3548E50042A40E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		446A83452C35576C0042A40E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		75EDD6E02C36669D009725BE /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
-		890AEF422C3714C000040D99 /* AddLibrarian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddLibrarian.swift; path = "../../../../../BiblioFi-admin/BiblioFi-admin/AddLibrarian.swift"; sourceTree = "<group>"; };
-		890AEF432C3714C000040D99 /* LibrarianCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibrarianCreationView.swift; path = "../../../../../BiblioFi-admin/BiblioFi-admin/LibrarianCreationView.swift"; sourceTree = "<group>"; };
-		890AEF462C3714DC00040D99 /* LibrarianDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianDataController.swift; sourceTree = "<group>"; };
-		890AEF492C3714EE00040D99 /* LibrarianModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianModel.swift; sourceTree = "<group>"; };
-		890AEF4D2C37150000040D99 /* LibrarianModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianModel.swift; sourceTree = "<group>"; };
-		890AEF4E2C37151600040D99 /* SidebarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarView.swift; path = "../../../../BiblioFi-admin/BiblioFi-admin/SidebarView.swift"; sourceTree = "<group>"; };
-		890AEF4F2C37151600040D99 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardView.swift; path = "../../../../BiblioFi-admin/BiblioFi-admin/DashboardView.swift"; sourceTree = "<group>"; };
-		BE5897792C36921B00EA6291 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
-		BE58977C2C3697B900EA6291 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		BE58979C2C37E33900EA6291 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		BE58979D2C37E33900EA6291 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		BE58979F2C37E33900EA6291 /* LibrarianModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianModel.swift; sourceTree = "<group>"; };
+		BE5897A12C37E33900EA6291 /* LibrarianDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianDataController.swift; sourceTree = "<group>"; };
+		BE5897A32C37E33900EA6291 /* AddLibrarianView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLibrarianView.swift; sourceTree = "<group>"; };
+		BE5897A42C37E33900EA6291 /* LibrarianCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianCreationView.swift; sourceTree = "<group>"; };
+		BE5897A62C37E33900EA6291 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		BE5897A72C37E33900EA6291 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		BE5897A92C37E33900EA6291 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		BE5897B42C37E34600EA6291 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		BE5897B52C37E34600EA6291 /* LoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +93,11 @@
 		446A82E92C3548E30042A40E /* BiblioFi-admin */ = {
 			isa = PBXGroup;
 			children = (
-				890AEF402C37146100040D99 /* HomeScreen */,
-				BE58977B2C3697A900EA6291 /* Utlis */,
-				BE5897782C367EF700EA6291 /* Authentication */,
+				BE5897B62C37E34600EA6291 /* Authentication */,
+				BE58979C2C37E33900EA6291 /* DataModel.swift */,
+				BE58979E2C37E33900EA6291 /* Firestore */,
+				BE5897A82C37E33900EA6291 /* HomeScreen 2 */,
+				BE5897AA2C37E33900EA6291 /* Utlis */,
 				446A82EA2C3548E30042A40E /* BiblioFi_adminApp.swift */,
 				446A82EC2C3548E30042A40E /* ContentView.swift */,
 				446A82EE2C3548E50042A40E /* Assets.xcassets */,
@@ -110,69 +115,66 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		890AEF402C37146100040D99 /* HomeScreen */ = {
+		BE58979E2C37E33900EA6291 /* Firestore */ = {
 			isa = PBXGroup;
 			children = (
-				890AEF4F2C37151600040D99 /* DashboardView.swift */,
-				890AEF4E2C37151600040D99 /* SidebarView.swift */,
-				890AEF4C2C3714FF00040D99 /* Data Model */,
-				890AEF472C3714DC00040D99 /* Data Contoller */,
-				890AEF412C37148F00040D99 /* Librarian */,
+				BE58979D2C37E33900EA6291 /* AuthManager.swift */,
 			);
-			path = HomeScreen;
+			path = Firestore;
 			sourceTree = "<group>";
 		};
-		890AEF412C37148F00040D99 /* Librarian */ = {
+		BE5897A02C37E33900EA6291 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				890AEF422C3714C000040D99 /* AddLibrarian.swift */,
-				890AEF432C3714C000040D99 /* LibrarianCreationView.swift */,
-			);
-			path = Librarian;
-			sourceTree = "<group>";
-		};
-		890AEF472C3714DC00040D99 /* Data Contoller */ = {
-			isa = PBXGroup;
-			children = (
-				890AEF4A2C3714EE00040D99 /* Data Model */,
-				890AEF462C3714DC00040D99 /* LibrarianDataController.swift */,
-			);
-			name = "Data Contoller";
-			path = "../../../../BiblioFi-admin/BiblioFi-admin/Data Contoller";
-			sourceTree = "<group>";
-		};
-		890AEF4A2C3714EE00040D99 /* Data Model */ = {
-			isa = PBXGroup;
-			children = (
-				890AEF492C3714EE00040D99 /* LibrarianModel.swift */,
-			);
-			name = "Data Model";
-			path = "../Data Model";
-			sourceTree = "<group>";
-		};
-		890AEF4C2C3714FF00040D99 /* Data Model */ = {
-			isa = PBXGroup;
-			children = (
-				890AEF4D2C37150000040D99 /* LibrarianModel.swift */,
+				BE58979F2C37E33900EA6291 /* LibrarianModel.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
 		};
-		BE5897782C367EF700EA6291 /* Authentication */ = {
+		BE5897A22C37E33900EA6291 /* DataController */ = {
 			isa = PBXGroup;
 			children = (
-				75EDD6E02C36669D009725BE /* LoginPage.swift */,
-				BE5897792C36921B00EA6291 /* AuthenticationManager.swift */,
+				BE5897A12C37E33900EA6291 /* LibrarianDataController.swift */,
 			);
-			path = Authentication;
+			path = DataController;
 			sourceTree = "<group>";
 		};
-		BE58977B2C3697A900EA6291 /* Utlis */ = {
+		BE5897A52C37E33900EA6291 /* Librarian */ = {
 			isa = PBXGroup;
 			children = (
-				BE58977C2C3697B900EA6291 /* Global.swift */,
+				BE5897A32C37E33900EA6291 /* AddLibrarianView.swift */,
+				BE5897A42C37E33900EA6291 /* LibrarianCreationView.swift */,
+			);
+			path = Librarian;
+			sourceTree = "<group>";
+		};
+		BE5897A82C37E33900EA6291 /* HomeScreen 2 */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897A02C37E33900EA6291 /* Data Model */,
+				BE5897A22C37E33900EA6291 /* DataController */,
+				BE5897A52C37E33900EA6291 /* Librarian */,
+				BE5897A62C37E33900EA6291 /* DashboardView.swift */,
+				BE5897A72C37E33900EA6291 /* Sidebar.swift */,
+			);
+			path = "HomeScreen 2";
+			sourceTree = "<group>";
+		};
+		BE5897AA2C37E33900EA6291 /* Utlis */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897A92C37E33900EA6291 /* Global.swift */,
 			);
 			path = Utlis;
+			sourceTree = "<group>";
+		};
+		BE5897B62C37E34600EA6291 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897B42C37E34600EA6291 /* AuthenticationManager.swift */,
+				BE5897B52C37E34600EA6291 /* LoginPage.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,17 +262,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5897B22C37E33900EA6291 /* Sidebar.swift in Sources */,
+				BE5897AE2C37E33900EA6291 /* LibrarianDataController.swift in Sources */,
+				BE5897AD2C37E33900EA6291 /* LibrarianModel.swift in Sources */,
+				BE5897B02C37E33900EA6291 /* LibrarianCreationView.swift in Sources */,
+				BE5897AF2C37E33900EA6291 /* AddLibrarianView.swift in Sources */,
+				BE5897B12C37E33900EA6291 /* DashboardView.swift in Sources */,
+				BE5897B82C37E34600EA6291 /* LoginPage.swift in Sources */,
+				BE5897B32C37E33900EA6291 /* Global.swift in Sources */,
 				446A82ED2C3548E30042A40E /* ContentView.swift in Sources */,
-				BE58977A2C36921B00EA6291 /* AuthenticationManager.swift in Sources */,
-				890AEF482C3714DC00040D99 /* LibrarianDataController.swift in Sources */,
-				890AEF442C3714C000040D99 /* AddLibrarian.swift in Sources */,
-				75EDD6E12C36669D009725BE /* LoginPage.swift in Sources */,
-				890AEF4B2C3714EE00040D99 /* LibrarianModel.swift in Sources */,
-				890AEF512C37151600040D99 /* DashboardView.swift in Sources */,
-				BE58977D2C3697B900EA6291 /* Global.swift in Sources */,
-				890AEF502C37151600040D99 /* SidebarView.swift in Sources */,
-				890AEF452C3714C000040D99 /* LibrarianCreationView.swift in Sources */,
+				BE5897AC2C37E33900EA6291 /* AuthManager.swift in Sources */,
+				BE5897B72C37E34600EA6291 /* AuthenticationManager.swift in Sources */,
 				446A82EB2C3548E30042A40E /* BiblioFi_adminApp.swift in Sources */,
+				BE5897AB2C37E33900EA6291 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
