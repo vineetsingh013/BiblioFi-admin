@@ -44,6 +44,4 @@ final class AuthenticationManager {
         } else { throw URLError(.badServerResponse) }
     }
     
-//    func getAuthenticatedLibrarian() 
-    
 }

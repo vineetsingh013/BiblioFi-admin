@@ -1,10 +1,3 @@
-//
-//  AddLibrarianView.swift
-//  BiblioFi-admin
-//
-//  Created by Akshat Kamboj on 04/07/24.
-//
-
 import SwiftUI
 
 struct AddLibrarianView: View {
@@ -12,6 +5,7 @@ struct AddLibrarianView: View {
     @Binding var librarianEmail: String
     @Binding var librarianPhoneNumber: String
     @Binding var librarianAddress: String
+    @Binding var librarianPassword: String
     var onDone: () -> Void
     
     @State private var showAlert = false
@@ -51,6 +45,12 @@ struct AddLibrarianView: View {
                 .cornerRadius(5.0)
                 .padding(.bottom, 20)
             
+            TextField("Password", text: $librarianPassword)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(5.0)
+                .padding(.bottom, 20)
+            
             Button(
                 action: {
                     if isValidForm() {
@@ -59,6 +59,7 @@ struct AddLibrarianView: View {
                         librarianEmail = ""
                         librarianPhoneNumber = ""
                         librarianAddress = ""
+                        librarianPassword = ""
                     }
                 }
             ) {
@@ -89,6 +90,10 @@ struct AddLibrarianView: View {
             Alert(title: Text("Invalid Input"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
+    
+    
+    
+    
     
     private func isValidName(_ name: String) -> Bool {
         return !name.isEmpty && name.allSatisfy { $0.isLetter || $0.isWhitespace }

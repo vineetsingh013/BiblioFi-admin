@@ -57,11 +57,8 @@ struct AudioBook {
 }
 
 struct Library{
-    let librarian : librarian
+    let librarian : Librarian
     let books : [Book]
     let members : [Member]
 }
 
-struct librarian{
-    
-}

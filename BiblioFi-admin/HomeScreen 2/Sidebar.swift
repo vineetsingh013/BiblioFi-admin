@@ -3,7 +3,6 @@ import SwiftUI
 
 struct SidebarView: View {
     @Binding var selectedTab: String
-    let admin = try? AuthenticationManager.shared.getAuthenticatedAdmin()
 
     var body: some View {
         VStack {
@@ -12,10 +11,10 @@ struct SidebarView: View {
                     .resizable()
                     .frame(width: 150, height: 200)
                     .padding(.top, 40)
-                Text("Admin")
+                Text("Keshav Lohiya")
                     .font(.title)
                     .fontWeight(.bold)
-                Text(admin!.email!)
+                Text("hehe@gmail.com")
                     .font(.title3)
                     .foregroundColor(.gray)
             }
@@ -31,7 +30,7 @@ struct SidebarView: View {
                             .font(.title2)
                     }
                     .padding()
-                    .background(selectedTab == "Dashboard" ? Color(.systemGray5) : Color.clear)
+                    .background(selectedTab == "Dashboard" ? Color(hex: "FDF5E6") : Color.clear)
                     .cornerRadius(10)
                 }
 
@@ -44,7 +43,7 @@ struct SidebarView: View {
                             .font(.title2)
                     }
                     .padding()
-                    .background(selectedTab == "Librarian" ? Color(.systemGray5) : Color.clear)
+                    .background(selectedTab == "Librarian" ? Color(hex: "FDF5E6") : Color.clear)
                     .cornerRadius(10)
                 }
             }

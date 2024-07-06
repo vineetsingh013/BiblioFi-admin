@@ -2,16 +2,18 @@ import SwiftUI
 
 struct LibrarianCreationView: View {
     @StateObject private var controller = LibrarianController()
+    @State var refresh: Bool = false
     @State private var showModal = false
     @State private var librarianName = ""
     @State private var librarianEmail = ""
     @State private var librarianPhoneNumber = ""
     @State private var librarianAddress = ""
+    @State private var librarianPassword = ""
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Infosys Library")
+                Text("Library Name")
                     .font(.largeTitle)
                     .padding(.leading, 20)
 
@@ -21,21 +23,25 @@ struct LibrarianCreationView: View {
 
             Divider()
                 .padding(.horizontal, 20)
-
-            if let librarian = controller.librarians.first {
-                LibrarianInfoView(
-                    librarian: librarian,
-                    onSave: { updatedLibrarian in
-                        if let index = controller.librarians.firstIndex(where: { $0.id == updatedLibrarian.id }) {
-                            controller.librarians[index] = updatedLibrarian
-                        }
-                    },
-                    onDelete: {
-                        if let index = controller.librarians.firstIndex(where: { $0.id == librarian.id }) {
-                            controller.deleteLibrarian(at: index)
+            
+            if let librarian = controller.librarian {
+                LibrarianInfoView(librarian: librarian, onSave: { updatedLibrarian in
+                                    // Update the librarian details
+                }, onDelete: {
+                    // Handle librarian deletion
+                    let librarianUid = UserDefaults.standard.string(forKey: "LibrarianID")
+                    guard let libId = librarianUid else { return }
+                    LibrarianManager.shared.deleteLibrarian(id: libId) { result in
+                        switch result {
+                        case .success():
+                            UserDefaults.standard.removeObject(forKey: "LibrarianID")
+                            refresh.toggle()
+                            print("Librarian deleted")
+                        case .failure(let error):
+                            print("Error at deleting \(error)")
                         }
                     }
-                )
+                })
             } else {
                 VStack {
                     Text("No librarian is currently available.\nClick the 'Add' button to add a librarian.")
@@ -72,23 +78,46 @@ struct LibrarianCreationView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(hex: "FDF5E6"))
+        .onAppear(perform: {
+            let librarianUid = UserDefaults.standard.string(forKey: "LibrarianID")
+            print(librarianUid)
+            guard let libId = librarianUid else { return }
+            controller.fetchLibrarian(withId: libId)
+        })
         .sheet(isPresented: $showModal) {
             AddLibrarianView(
                 librarianName: $librarianName,
                 librarianEmail: $librarianEmail,
                 librarianPhoneNumber: $librarianPhoneNumber,
                 librarianAddress: $librarianAddress,
+                librarianPassword: $librarianPassword,
                 onDone: {
-                    controller.addLibrarian(name: librarianName, email: librarianEmail, phoneNumber: librarianPhoneNumber, address: librarianAddress)
-                    showModal = false
+                    controller.addLibrarian(name: librarianName, email: librarianEmail, phoneNumber: librarianPhoneNumber, address: librarianAddress, password: librarianPassword) { result in
+                        
+                        switch result {
+                        case .success:
+                            sendEmailToLibrarian()
+                            let librarianUid = UserDefaults.standard.string(forKey: "LibrarianID")
+                            print(librarianUid!)
+                            guard let libId = librarianUid else { return }
+                            controller.fetchLibrarian(withId: libId)
+                            refresh.toggle()
+                            showModal = false
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
                 }
             )
         }
     }
 }
 
+func sendEmailToLibrarian() {
+    
+}
+
 struct LibrarianInfoView: View {
-    @State private var isEditing = false
     @State private var librarianName: String
     @State private var librarianEmail: String
     @State private var librarianPhoneNumber: String
@@ -117,79 +146,39 @@ struct LibrarianInfoView: View {
                 Text("Name")
                     .font(.title2)
                     .padding(.bottom, 2)
-                if isEditing {
-                    TextField("Name", text: $librarianName)
-                        .padding()
-                        .background(Color(.systemGray3))
-                        .cornerRadius(5.0)
-                        .padding(.bottom, 10)
-                } else {
+            
                     Text(librarianName)
                         .font(.title2)
                         .padding(.bottom, 10)
-                }
+                
 
                 Text("Email")
                     .font(.title2)
                     .padding(.bottom, 2)
-                if isEditing {
-                    TextField("Email", text: $librarianEmail)
-                        .padding()
-                        .background(Color(.systemGray3))
-                        .cornerRadius(5.0)
-                        .padding(.bottom, 20)
-                } else {
+                
                     Text(librarianEmail)
                         .font(.title2)
                         .padding(.bottom, 20)
-                }
-
+                
                 Text("Phone Number")
                     .font(.title2)
                     .padding(.bottom, 2)
-                if isEditing {
-                    TextField("Phone Number", text: $librarianPhoneNumber)
-                        .padding()
-                        .background(Color(.systemGray3))
-                        .cornerRadius(5.0)
-                        .padding(.bottom, 20)
-                } else {
+                
                     Text(librarianPhoneNumber)
                         .font(.title2)
                         .padding(.bottom, 20)
-                }
 
                 Text("Address")
                     .font(.title2)
                     .padding(.bottom, 2)
-                if isEditing {
-                    TextField("Address", text: $librarianAddress)
-                        .padding()
-                        .background(Color(.systemGray3))
-                        .cornerRadius(5.0)
-                        .padding(.bottom, 20)
-                } else {
+               
                     Text(librarianAddress)
                         .font(.title2)
                         .padding(.bottom, 20)
-                }
+                
             }
 
             HStack {
-                Button(action: {
-                    if isEditing {
-                        let updatedLibrarian = Librarian(id: librarian.id, name: librarianName, email: librarianEmail, phoneNumber: librarianPhoneNumber, address: librarianAddress)
-                        onSave(updatedLibrarian)
-                    }
-                    isEditing.toggle()
-                }) {
-                    Text(isEditing ? "Save" : "Edit")
-                        .font(.title2)
-                        .padding()
-                        .background(Color(hex: "5D4037"))
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
                 Spacer()
                 Button(action: onDelete) {
                     Text("Delete")
@@ -212,7 +201,7 @@ struct LibrarianInfoView: View {
 
 #Preview {
     LibrarianInfoView(
-        librarian: Librarian(id: UUID(), name: "John Doe", email: "john.doe@example.com", phoneNumber: "1234567890", address: "123 Main St"),
+        librarian: Librarian(id: "1", name: "John Doe", email: "john.doe@example.com", phoneNumber: "1234567890", address: "123 Main St"),
         onSave: { _ in },
         onDelete: {}
     )

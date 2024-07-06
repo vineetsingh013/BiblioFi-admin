@@ -16,6 +16,8 @@ final class AuthManager {
         return Admin(id: authDataResult.uid, email: authDataResult.email, library: nil)
     }
     
-    
+//    func createLibrarian(id: String, email: String, password: String, name: String, address: String, phoneNumber: String) ->  librarian {
+//        return librarian(id: id, name: name, password: password, email: email, phoneNumber: phoneNumber, address: address)
+//    }
     
 }

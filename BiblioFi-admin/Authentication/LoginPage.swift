@@ -34,14 +34,13 @@ struct LoginPage: View {
     
     var body: some View {
         ZStack {
-            Color(hex: "FDF5E6") // Pastel Background
+            Color(hex: "FDF5E6")
                 .edgesIgnoringSafeArea(.all)
             
             HStack {
                 VStack {
                     Spacer()
-                    
-                    Image("booksIllustration") // Assuming you have an image named "booksIllustration"
+                    Image("booksIllustration")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .padding(.leading, 50)
@@ -52,35 +51,21 @@ struct LoginPage: View {
                     .overlay(Color(hex: "5D4037"))
                 
                 VStack(spacing: 20) {
-                    
-                    
-                    Image("owlLogo") // Assuming you have an image named "owlLogo"
+                    Image("owlLogo")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 100, height: 100)
-                    
                     Text("BibloFi")
-                    
                         .frame(width: 100,height: 40)
-                        .font(.custom("Avenir Next", size: 24
-                                     ))
+                        .font(.custom("Avenir Next", size: 24))
                         .fontWeight(.bold)
                         .foregroundColor(Color(hex: "5D4037"))
-                    
-                    // Primary Text Color
-                    
-                    
                     Text("Welcome")
                         .frame(width: 300)
                         .font(.custom("Avenir Next", size: 40))
                         .fontWeight(.bold)
                         .foregroundColor(Color(hex: "5D4037"))
                         .padding(10)// Primary Text Color
-                    
-                    //                    Text("Login")
-                    //                        .font(.custom("Avenir Next", size: 24))
-                    //                        .fontWeight(.semibold)
-                    //                        .foregroundColor(Color(hex: "5D4037")) // Primary Text Color
                     
                     Text("Please login to your account")
                         .font(.custom("Avenir Next", size: 18))
@@ -105,33 +90,35 @@ struct LoginPage: View {
                         .padding(.horizontal, 40)
                     
                     Button(action: {
-                                            loginPageViewModel.signIn(isLoggedIn: $isLoggedIn)
-                                        }) {
-                                            Text("Login")
-                                                .font(.custom("Avenir Next", size: 18))
-                                                .fontWeight(.bold)
-                                                .foregroundColor(.white)
-                                                .frame(maxWidth: .infinity)
-                                                .padding()
-                                                .background(Color(hex: "A0522D")) // Button Color
-                                                .cornerRadius(10)
-                                                .padding(.horizontal, 40)
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                    .frame(width: UIScreen.main.bounds.width / 2)
-                                }
-                            }
-                            .alert(isPresented: $loginPageViewModel.showAlert) {
-                                Alert(
-                                    title: Text("Sign-In Error"),
-                                    message: Text(loginPageViewModel.alertMessage),
-                                    dismissButton: .default(Text("OK"))
-                                )
-                            }
-                        }
-                    }
+                        loginPageViewModel.signIn(isLoggedIn: $isLoggedIn)
+                    }) {
+                        Text("Login")
+                            .font(.custom("Avenir Next", size: 18))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color(hex: "A0522D")) // Button Color
+                            .cornerRadius(10)
+                            .padding(.horizontal, 40)
+                    }.fullScreenCover(isPresented: $isLoggedIn, content: {
+                        DashboardView()
+                    })
+                    
+                    Spacer()
+                }
+                .frame(width: UIScreen.main.bounds.width / 2)
+            }
+        }
+        .alert(isPresented: $loginPageViewModel.showAlert) {
+            Alert(
+                title: Text("Sign-In Error"),
+                message: Text(loginPageViewModel.alertMessage),
+                dismissButton: .default(Text("OK"))
+            )
+        }
+    }
+}
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
