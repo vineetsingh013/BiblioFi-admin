@@ -27,6 +27,12 @@
 		BE5897962C37C1A800EA6291 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897952C37C1A800EA6291 /* DataModel.swift */; };
 		BE5897992C37C94300EA6291 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897982C37C94300EA6291 /* AuthManager.swift */; };
 		BE5897BC2C380CD700EA6291 /* LibrarianManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897BB2C380CD700EA6291 /* LibrarianManager.swift */; };
+		BE5897CB2C38FD3000EA6291 /* LibrarianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897C12C38FD3000EA6291 /* LibrarianModel.swift */; };
+		BE5897CC2C38FD3000EA6291 /* LibrarianDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897C32C38FD3000EA6291 /* LibrarianDataController.swift */; };
+		BE5897CD2C38FD3000EA6291 /* AddLibrarianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897C52C38FD3000EA6291 /* AddLibrarianView.swift */; };
+		BE5897CE2C38FD3000EA6291 /* LibrarianCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897C62C38FD3000EA6291 /* LibrarianCreationView.swift */; };
+		BE5897CF2C38FD3000EA6291 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897C82C38FD3000EA6291 /* DashboardView.swift */; };
+		BE5897D02C38FD3000EA6291 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897C92C38FD3000EA6291 /* Sidebar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,12 @@
 		BE5897952C37C1A800EA6291 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BE5897982C37C94300EA6291 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BE5897BB2C380CD700EA6291 /* LibrarianManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarianManager.swift; sourceTree = "<group>"; };
+		BE5897C12C38FD3000EA6291 /* LibrarianModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianModel.swift; sourceTree = "<group>"; };
+		BE5897C32C38FD3000EA6291 /* LibrarianDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianDataController.swift; sourceTree = "<group>"; };
+		BE5897C52C38FD3000EA6291 /* AddLibrarianView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLibrarianView.swift; sourceTree = "<group>"; };
+		BE5897C62C38FD3000EA6291 /* LibrarianCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianCreationView.swift; sourceTree = "<group>"; };
+		BE5897C82C38FD3000EA6291 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		BE5897C92C38FD3000EA6291 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 		446A82E92C3548E30042A40E /* BiblioFi-admin */ = {
 			isa = PBXGroup;
 			children = (
+				BE5897CA2C38FD3000EA6291 /* HomeScreen 2 */,
 				BE5897972C37C91600EA6291 /* Firestore */,
 				BE5897952C37C1A800EA6291 /* DataModel.swift */,
 				BE58977B2C3697A900EA6291 /* Utlis */,
@@ -128,6 +141,43 @@
 				BE5897BB2C380CD700EA6291 /* LibrarianManager.swift */,
 			);
 			path = Firestore;
+			sourceTree = "<group>";
+		};
+		BE5897C22C38FD3000EA6291 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897C12C38FD3000EA6291 /* LibrarianModel.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		BE5897C42C38FD3000EA6291 /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897C32C38FD3000EA6291 /* LibrarianDataController.swift */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
+		BE5897C72C38FD3000EA6291 /* Librarian */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897C52C38FD3000EA6291 /* AddLibrarianView.swift */,
+				BE5897C62C38FD3000EA6291 /* LibrarianCreationView.swift */,
+			);
+			path = Librarian;
+			sourceTree = "<group>";
+		};
+		BE5897CA2C38FD3000EA6291 /* HomeScreen 2 */ = {
+			isa = PBXGroup;
+			children = (
+				BE5897C22C38FD3000EA6291 /* Data Model */,
+				BE5897C42C38FD3000EA6291 /* DataController */,
+				BE5897C72C38FD3000EA6291 /* Librarian */,
+				BE5897C82C38FD3000EA6291 /* DashboardView.swift */,
+				BE5897C92C38FD3000EA6291 /* Sidebar.swift */,
+			);
+			path = "HomeScreen 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,11 +265,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5897CB2C38FD3000EA6291 /* LibrarianModel.swift in Sources */,
+				BE5897CD2C38FD3000EA6291 /* AddLibrarianView.swift in Sources */,
+				BE5897CE2C38FD3000EA6291 /* LibrarianCreationView.swift in Sources */,
+				BE5897CF2C38FD3000EA6291 /* DashboardView.swift in Sources */,
+				BE5897CC2C38FD3000EA6291 /* LibrarianDataController.swift in Sources */,
 				BE5897992C37C94300EA6291 /* AuthManager.swift in Sources */,
 				446A82ED2C3548E30042A40E /* ContentView.swift in Sources */,
 				BE58977A2C36921B00EA6291 /* AuthenticationManager.swift in Sources */,
 				BE5897962C37C1A800EA6291 /* DataModel.swift in Sources */,
 				75EDD6E12C36669D009725BE /* LoginPage.swift in Sources */,
+				BE5897D02C38FD3000EA6291 /* Sidebar.swift in Sources */,
 				BE5897BC2C380CD700EA6291 /* LibrarianManager.swift in Sources */,
 				BE58977D2C3697B900EA6291 /* Global.swift in Sources */,
 				446A82EB2C3548E30042A40E /* BiblioFi_adminApp.swift in Sources */,
