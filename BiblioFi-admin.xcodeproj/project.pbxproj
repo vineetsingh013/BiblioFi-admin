@@ -20,6 +20,7 @@
 		446A83552C3558630042A40E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83542C3558630042A40E /* FirebaseFirestore */; };
 		446A83572C3558630042A40E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83562C3558630042A40E /* FirebaseFirestoreSwift */; };
 		446A83592C3558630042A40E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83582C3558630042A40E /* FirebaseStorage */; };
+		BE4206842C3B02A000333F53 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4206822C3B02A000333F53 /* Global.swift */; };
 		BE5897E52C39D6B500EA6291 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897D12C39D6B300EA6291 /* AuthManager.swift */; };
 		BE5897E62C39D6B500EA6291 /* LibrarianManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897D22C39D6B300EA6291 /* LibrarianManager.swift */; };
 		BE5897E72C39D6B500EA6291 /* LibrarianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897D42C39D6B300EA6291 /* LibrarianModel.swift */; };
@@ -28,7 +29,6 @@
 		BE5897EA2C39D6B500EA6291 /* LibrarianCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897D92C39D6B300EA6291 /* LibrarianCreationView.swift */; };
 		BE5897EB2C39D6B500EA6291 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897DB2C39D6B300EA6291 /* DashboardView.swift */; };
 		BE5897EC2C39D6B500EA6291 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897DC2C39D6B300EA6291 /* Sidebar.swift */; };
-		BE5897ED2C39D6B500EA6291 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897DE2C39D6B300EA6291 /* Global.swift */; };
 		BE5897EE2C39D6B500EA6291 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897E02C39D6B300EA6291 /* ContentView.swift */; };
 		BE5897EF2C39D6B500EA6291 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897E12C39D6B500EA6291 /* DataModel.swift */; };
 		BE5897F02C39D6B500EA6291 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897E22C39D6B500EA6291 /* AuthenticationManager.swift */; };
@@ -41,6 +41,7 @@
 		446A82EE2C3548E50042A40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446A82F12C3548E50042A40E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		446A83452C35576C0042A40E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE4206822C3B02A000333F53 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BE5897D12C39D6B300EA6291 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BE5897D22C39D6B300EA6291 /* LibrarianManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianManager.swift; sourceTree = "<group>"; };
 		BE5897D42C39D6B300EA6291 /* LibrarianModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianModel.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		BE5897D92C39D6B300EA6291 /* LibrarianCreationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianCreationView.swift; sourceTree = "<group>"; };
 		BE5897DB2C39D6B300EA6291 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		BE5897DC2C39D6B300EA6291 /* Sidebar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
-		BE5897DE2C39D6B300EA6291 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BE5897E02C39D6B300EA6291 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE5897E12C39D6B500EA6291 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BE5897E22C39D6B500EA6291 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -95,12 +95,12 @@
 		446A82E92C3548E30042A40E /* BiblioFi-admin */ = {
 			isa = PBXGroup;
 			children = (
+				BE4206832C3B02A000333F53 /* utlis */,
 				BE5897E42C39D6B500EA6291 /* Authentication */,
 				BE5897E02C39D6B300EA6291 /* ContentView.swift */,
 				BE5897E12C39D6B500EA6291 /* DataModel.swift */,
 				BE5897D32C39D6B300EA6291 /* Firestore */,
 				BE5897DD2C39D6B300EA6291 /* HomeScreen 2 */,
-				BE5897DF2C39D6B300EA6291 /* Utlis */,
 				446A82EA2C3548E30042A40E /* BiblioFi_adminApp.swift */,
 				446A82EE2C3548E50042A40E /* Assets.xcassets */,
 				446A83452C35576C0042A40E /* GoogleService-Info.plist */,
@@ -115,6 +115,15 @@
 				446A82F12C3548E50042A40E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BE4206832C3B02A000333F53 /* utlis */ = {
+			isa = PBXGroup;
+			children = (
+				BE4206822C3B02A000333F53 /* Global.swift */,
+			);
+			name = utlis;
+			path = "../../untitled folder/BiblioFi-admin/BiblioFi-admin/utlis";
 			sourceTree = "<group>";
 		};
 		BE5897D32C39D6B300EA6291 /* Firestore */ = {
@@ -161,15 +170,6 @@
 				BE5897DC2C39D6B300EA6291 /* Sidebar.swift */,
 			);
 			path = "HomeScreen 2";
-			sourceTree = "<group>";
-		};
-		BE5897DF2C39D6B300EA6291 /* Utlis */ = {
-			isa = PBXGroup;
-			children = (
-				BE5897DE2C39D6B300EA6291 /* Global.swift */,
-			);
-			name = Utlis;
-			path = "../../../BiblioFi-admin/BiblioFi-admin/Utlis";
 			sourceTree = "<group>";
 		};
 		BE5897E42C39D6B500EA6291 /* Authentication */ = {
@@ -272,13 +272,13 @@
 				BE5897E92C39D6B500EA6291 /* AddLibrarianView.swift in Sources */,
 				BE5897F12C39D6B500EA6291 /* LoginPage.swift in Sources */,
 				BE5897E82C39D6B500EA6291 /* LibrarianDataController.swift in Sources */,
+				BE4206842C3B02A000333F53 /* Global.swift in Sources */,
 				BE5897EF2C39D6B500EA6291 /* DataModel.swift in Sources */,
 				446A82EB2C3548E30042A40E /* BiblioFi_adminApp.swift in Sources */,
 				BE5897F02C39D6B500EA6291 /* AuthenticationManager.swift in Sources */,
 				BE5897E62C39D6B500EA6291 /* LibrarianManager.swift in Sources */,
 				BE5897EA2C39D6B500EA6291 /* LibrarianCreationView.swift in Sources */,
 				BE5897EC2C39D6B500EA6291 /* Sidebar.swift in Sources */,
-				BE5897ED2C39D6B500EA6291 /* Global.swift in Sources */,
 				BE5897E52C39D6B500EA6291 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
