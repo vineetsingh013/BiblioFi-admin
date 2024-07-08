@@ -1,4 +1,5 @@
 import SwiftUI
+import MessageUI
 
 struct LibrarianCreationView: View {
     @StateObject private var controller = LibrarianController()
@@ -9,24 +10,28 @@ struct LibrarianCreationView: View {
     @State private var librarianPhoneNumber = ""
     @State private var librarianAddress = ""
     @State private var librarianPassword = ""
-
+    @State private var result: Result<MFMailComposeResult, Error>? = nil
+    @State private var isShowingMailView = false
+    @State private var showMailingAlert = false
+    @State private var alertMessagingMessage = ""
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Library Name")
                     .font(.largeTitle)
                     .padding(.leading, 20)
-
+                
                 Spacer()
             }
             .padding(.top, 20)
-
+            
             Divider()
                 .padding(.horizontal, 20)
             
             if let librarian = controller.librarian {
                 LibrarianInfoView(librarian: librarian, onSave: { updatedLibrarian in
-                                    // Update the librarian details
+                    // Update the librarian details
                 }, onDelete: {
                     // Handle librarian deletion
                     let librarianUid = UserDefaults.standard.string(forKey: "LibrarianID")
@@ -48,7 +53,7 @@ struct LibrarianCreationView: View {
                         .font(.title2)
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 5)
-
+                    
                     Button(action: {
                         showModal = true
                     }) {
@@ -62,7 +67,7 @@ struct LibrarianCreationView: View {
                             .cornerRadius(10)
                             .padding(.horizontal, 40)
                         
-
+                        
                     }
                     .padding(.top, 20)
                 }
@@ -73,7 +78,7 @@ struct LibrarianCreationView: View {
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity, maxHeight: 200, alignment: .center)
             }
-
+            
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -96,12 +101,18 @@ struct LibrarianCreationView: View {
                         
                         switch result {
                         case .success:
-                            sendEmailToLibrarian()
+                            
                             let librarianUid = UserDefaults.standard.string(forKey: "LibrarianID")
                             print(librarianUid!)
                             guard let libId = librarianUid else { return }
                             controller.fetchLibrarian(withId: libId)
                             refresh.toggle()
+                            if MFMailComposeViewController.canSendMail() {
+                                self.isShowingMailView.toggle()
+                            } else {
+                                self.alertMessagingMessage = "This device is not configured to send email. Please set up an email account in the Mail app."
+                                self.showMailingAlert = true
+                            }
                             showModal = false
                         case .failure(let error):
                             print(error.localizedDescription)
@@ -109,12 +120,46 @@ struct LibrarianCreationView: View {
                     }
                 }
             )
+        }.sheet(isPresented: $isShowingMailView) {
+            MailView(result: self.$result, subject: "Subject", messageBody: "Message Body", recipients: ["example@example.com"])
+        }
+        .alert(isPresented: $showMailingAlert) {
+            Alert(title: Text("Cannot Send Mail"), message: Text(alertMessagingMessage), dismissButton: .default(Text("OK")))
         }
     }
-}
-
-func sendEmailToLibrarian() {
     
+    func sendEmailToLibrarian(name: String, email: String, password: String) {
+        print("reached email api")
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposeViewController = MFMailComposeViewController()
+            mailComposeViewController.setSubject("Welcome to BibloFi's Library Management")
+            mailComposeViewController.setToRecipients([email])
+            mailComposeViewController.setMessageBody("""
+                Dear \(name),
+                
+                Welcome to our Library Management System! We are thrilled to have you join our team. Below are your login credentials to access the system:
+                
+                Email: \(email)
+                Password: \(password)
+                
+                To get started, please follow these steps:
+                
+                Log In: Visit our Library Management System portal at [Portal URL] and log in using the credentials provided above.
+                Change Password: For security reasons, we recommend that you change your temporary password immediately after logging in. You can do this by navigating to the 'Profile' section and selecting 'Change Password.'
+                Explore Features: Familiarize yourself with the system by exploring various features, such as managing books, handling loans and reservations, and viewing announcements.
+                
+                If you encounter any issues or have any questions, please do not hesitate to contact our support team at support@biblofi.com.
+                
+                Thank you for your dedication to providing excellent service to our library community. We look forward to a successful collaboration.
+                
+                Best regards,
+                Admin
+                """, isHTML: false)
+            UIApplication.shared.windows.first?.rootViewController?.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            print("Cannot send mail")
+        }
+    }
 }
 
 struct LibrarianInfoView: View {
@@ -125,7 +170,7 @@ struct LibrarianInfoView: View {
     var librarian: Librarian
     let onSave: (Librarian) -> Void
     let onDelete: () -> Void
-
+    
     init(librarian: Librarian, onSave: @escaping (Librarian) -> Void, onDelete: @escaping () -> Void) {
         self.librarian = librarian
         self.onSave = onSave
@@ -135,49 +180,49 @@ struct LibrarianInfoView: View {
         _librarianPhoneNumber = State(initialValue: librarian.phoneNumber)
         _librarianAddress = State(initialValue: librarian.address)
     }
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Librarian Information")
                 .font(.title)
                 .padding(.bottom, 10)
-
+            
             Group {
                 Text("Name")
                     .font(.title2)
                     .padding(.bottom, 2)
-            
-                    Text(librarianName)
-                        .font(.title2)
-                        .padding(.bottom, 10)
                 
-
+                Text(librarianName)
+                    .font(.title2)
+                    .padding(.bottom, 10)
+                
+                
                 Text("Email")
                     .font(.title2)
                     .padding(.bottom, 2)
                 
-                    Text(librarianEmail)
-                        .font(.title2)
-                        .padding(.bottom, 20)
+                Text(librarianEmail)
+                    .font(.title2)
+                    .padding(.bottom, 20)
                 
                 Text("Phone Number")
                     .font(.title2)
                     .padding(.bottom, 2)
                 
-                    Text(librarianPhoneNumber)
-                        .font(.title2)
-                        .padding(.bottom, 20)
-
+                Text(librarianPhoneNumber)
+                    .font(.title2)
+                    .padding(.bottom, 20)
+                
                 Text("Address")
                     .font(.title2)
                     .padding(.bottom, 2)
-               
-                    Text(librarianAddress)
-                        .font(.title2)
-                        .padding(.bottom, 20)
+                
+                Text(librarianAddress)
+                    .font(.title2)
+                    .padding(.bottom, 20)
                 
             }
-
+            
             HStack {
                 Spacer()
                 Button(action: onDelete) {
@@ -206,7 +251,6 @@ struct LibrarianInfoView: View {
         onDelete: {}
     )
 }
-
 
 #Preview {
     LibrarianCreationView()

@@ -20,6 +20,7 @@
 		446A83552C3558630042A40E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83542C3558630042A40E /* FirebaseFirestore */; };
 		446A83572C3558630042A40E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83562C3558630042A40E /* FirebaseFirestoreSwift */; };
 		446A83592C3558630042A40E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83582C3558630042A40E /* FirebaseStorage */; };
+		BE13F4D62C3BE4EB0023D7F9 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE13F4D52C3BE4EB0023D7F9 /* MailView.swift */; };
 		BE4206842C3B02A000333F53 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4206822C3B02A000333F53 /* Global.swift */; };
 		BE5897E52C39D6B500EA6291 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897D12C39D6B300EA6291 /* AuthManager.swift */; };
 		BE5897E62C39D6B500EA6291 /* LibrarianManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5897D22C39D6B300EA6291 /* LibrarianManager.swift */; };
@@ -41,6 +42,7 @@
 		446A82EE2C3548E50042A40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446A82F12C3548E50042A40E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		446A83452C35576C0042A40E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE13F4D52C3BE4EB0023D7F9 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		BE4206822C3B02A000333F53 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BE5897D12C39D6B300EA6291 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BE5897D22C39D6B300EA6291 /* LibrarianManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianManager.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				BE4206822C3B02A000333F53 /* Global.swift */,
+				BE13F4D52C3BE4EB0023D7F9 /* MailView.swift */,
 			);
 			name = utlis;
 			path = "../../untitled folder/BiblioFi-admin/BiblioFi-admin/utlis";
@@ -270,6 +273,7 @@
 				BE5897EE2C39D6B500EA6291 /* ContentView.swift in Sources */,
 				BE5897EB2C39D6B500EA6291 /* DashboardView.swift in Sources */,
 				BE5897E92C39D6B500EA6291 /* AddLibrarianView.swift in Sources */,
+				BE13F4D62C3BE4EB0023D7F9 /* MailView.swift in Sources */,
 				BE5897F12C39D6B500EA6291 /* LoginPage.swift in Sources */,
 				BE5897E82C39D6B500EA6291 /* LibrarianDataController.swift in Sources */,
 				BE4206842C3B02A000333F53 /* Global.swift in Sources */,
@@ -413,7 +417,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BiblioFi-admin/Preview Content\"";
-				DEVELOPMENT_TEAM = 9PP9B69T7Z;
+				DEVELOPMENT_TEAM = G92D6CAALR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -426,7 +430,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "vineet.BiblioFi-admin";
+				PRODUCT_BUNDLE_IDENTIFIER = "vineet.BiblioFipppppp-adminn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -442,7 +446,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BiblioFi-admin/Preview Content\"";
-				DEVELOPMENT_TEAM = 9PP9B69T7Z;
+				DEVELOPMENT_TEAM = G92D6CAALR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -455,7 +459,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "vineet.BiblioFi-admin";
+				PRODUCT_BUNDLE_IDENTIFIER = "vineet.BiblioFipppppp-adminn";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

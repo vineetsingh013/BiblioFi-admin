@@ -31,10 +31,11 @@ final class LoginPageViewModel: ObservableObject {
 struct LoginPage: View {
     @StateObject private var loginPageViewModel = LoginPageViewModel()
     @State private var isLoggedIn = false
-    
+
     var body: some View {
         ZStack {
-            Color(hex: "FDF5E6")
+            
+            Color(red: 249/255, green: 237/255, blue: 234/255)
                 .edgesIgnoringSafeArea(.all)
             
             HStack {
@@ -46,11 +47,8 @@ struct LoginPage: View {
                         .padding(.leading, 50)
                     Spacer()
                 }
-                .frame(width: UIScreen.main.bounds.width / 2)
-                Divider()
-                    .overlay(Color(hex: "5D4037"))
                 
-                VStack(spacing: 20) {
+                VStack(spacing: 50) {
                     Image("owlLogo")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -59,33 +57,34 @@ struct LoginPage: View {
                         .frame(width: 100,height: 40)
                         .font(.custom("Avenir Next", size: 24))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(hex: "5D4037"))
+                        .foregroundColor(Color(red: 93/255, green: 64/255, blue: 55/255))
                     Text("Welcome")
-                        .frame(width: 300)
-                        .font(.custom("Avenir Next", size: 40))
+//                        .frame(width: 300)
+                        .font(.custom("Avenir Next", size: 56))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(hex: "5D4037"))
-                        .padding(10)// Primary Text Color
+                        .foregroundColor(Color(red: 93/255, green: 64/255, blue: 55/255))
+                        .padding(10)
                     
                     Text("Please login to your account")
-                        .font(.custom("Avenir Next", size: 18))
-                        .foregroundColor(Color(hex: "8D6E63")) // Secondary Text Color
+                        .font(.custom("Avenir Next", size: 24))
+                        .foregroundColor(Color(red: 93/255, green: 64/255, blue: 55/255))
+                   
                     
                     TextField("Email address", text: $loginPageViewModel.email)
-                        .font(.custom("Avenir Next", size: 18))
+                        .font(.custom("Avenir Next", size: 24))
                         .padding()
                         .background(Color.white)
-                        .cornerRadius(10)
+                        .cornerRadius(8)
                         .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
                         .autocapitalization(.none)
                         .keyboardType(.emailAddress)
                         .padding(.horizontal, 40)
                     
                     SecureField("Password", text: $loginPageViewModel.password)
-                        .font(.custom("Avenir Next", size: 18))
+                        .font(.custom("Avenir Next", size: 24))
                         .padding()
                         .background(Color.white)
-                        .cornerRadius(10)
+                        .cornerRadius(8)
                         .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 2)
                         .padding(.horizontal, 40)
                     
@@ -93,14 +92,16 @@ struct LoginPage: View {
                         loginPageViewModel.signIn(isLoggedIn: $isLoggedIn)
                     }) {
                         Text("Login")
-                            .font(.custom("Avenir Next", size: 18))
+                            .font(.custom("Avenir Next", size: 32))
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
+                            .frame(height: 38)
                             .padding()
-                            .background(Color(hex: "A0522D")) // Button Color
+                            .background(Color(red: 93/255, green: 64/255, blue: 55/255))
                             .cornerRadius(10)
                             .padding(.horizontal, 40)
+                            .padding(.bottom, 80)
                     }.fullScreenCover(isPresented: $isLoggedIn, content: {
                         DashboardView()
                     })
