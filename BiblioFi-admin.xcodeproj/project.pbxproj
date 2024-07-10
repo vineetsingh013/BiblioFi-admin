@@ -21,6 +21,7 @@
 		446A83552C3558630042A40E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83542C3558630042A40E /* FirebaseFirestore */; };
 		446A83572C3558630042A40E /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83562C3558630042A40E /* FirebaseFirestoreSwift */; };
 		446A83592C3558630042A40E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 446A83582C3558630042A40E /* FirebaseStorage */; };
+		89A305A42C3E5FDE00EA4831 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A305A32C3E5FDE00EA4831 /* Stats.swift */; };
 		BE5897AB2C37E33900EA6291 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58979C2C37E33900EA6291 /* DataModel.swift */; };
 		BE5897AC2C37E33900EA6291 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58979D2C37E33900EA6291 /* AuthManager.swift */; };
 		BE5897AD2C37E33900EA6291 /* LibrarianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE58979F2C37E33900EA6291 /* LibrarianModel.swift */; };
@@ -41,6 +42,7 @@
 		446A82EE2C3548E50042A40E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446A82F12C3548E50042A40E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		446A83452C35576C0042A40E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89A305A32C3E5FDE00EA4831 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		BE58979C2C37E33900EA6291 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		BE58979D2C37E33900EA6291 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		BE58979F2C37E33900EA6291 /* LibrarianModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibrarianModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				BE5897A22C37E33900EA6291 /* DataController */,
 				BE5897A52C37E33900EA6291 /* Librarian */,
 				BE5897A62C37E33900EA6291 /* DashboardView.swift */,
+				89A305A32C3E5FDE00EA4831 /* Stats.swift */,
 				BE5897A72C37E33900EA6291 /* Sidebar.swift */,
 			);
 			path = "HomeScreen 2";
@@ -265,6 +268,7 @@
 				BE5897B22C37E33900EA6291 /* Sidebar.swift in Sources */,
 				BE5897AE2C37E33900EA6291 /* LibrarianDataController.swift in Sources */,
 				BE5897AD2C37E33900EA6291 /* LibrarianModel.swift in Sources */,
+				89A305A42C3E5FDE00EA4831 /* Stats.swift in Sources */,
 				BE5897B02C37E33900EA6291 /* LibrarianCreationView.swift in Sources */,
 				BE5897AF2C37E33900EA6291 /* AddLibrarianView.swift in Sources */,
 				BE5897B12C37E33900EA6291 /* DashboardView.swift in Sources */,

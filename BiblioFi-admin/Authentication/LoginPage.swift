@@ -120,7 +120,7 @@ struct LoginPage: View {
                             .cornerRadius(10)
                             .padding(.horizontal, 40)
                     }.fullScreenCover(isPresented: $isLoggedIn, content: {
-                        DashboardView()
+                        DashboardView(libraryStats: sampleLibraryStats)
                     })
 
                     Spacer()

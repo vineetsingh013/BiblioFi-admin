@@ -65,3 +65,32 @@ struct Library{
 struct librarian{
     
 }
+
+struct LibraryStats {
+    let totalUsers: Int
+    let totalBooks: Int
+    let fineDue: Double
+    let userActivity: [String: Int] // Day of the week -> Activity count
+    let monthlyRevenue: [String: Double] // Month -> Revenue
+    let trendingBooks: [TrendingBook]
+}
+
+struct TrendingBook {
+    let category: String
+    let issuedCount: Int
+    let percentageOfTotal: Double
+}
+
+
+let sampleLibraryStats = LibraryStats(
+    totalUsers: 2435,
+    totalBooks: 3276,
+    fineDue: 1763.0,
+    userActivity: ["Mon": 30, "Tue": 40, "Wed": 80, "Thu": 100, "Fri": 75, "Sat": 60, "Sun": 23],
+    monthlyRevenue: ["March": 1200.0, "April": 7200.0, "May": 3600.0],
+    trendingBooks: [
+        TrendingBook(category: "Fantasy", issuedCount: 78, percentageOfTotal: 45.0),
+        TrendingBook(category: "Fiction", issuedCount: 78, percentageOfTotal: 45.0),
+        TrendingBook(category: "Politics", issuedCount: 78, percentageOfTotal: 45.0)
+    ]
+)
